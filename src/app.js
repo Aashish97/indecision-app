@@ -1,7 +1,24 @@
 console.log("App is running")
 
-let appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
-let template = <h1>Indecision Apps</h1>;
+const app = {
+    title: 'Indecision App',
+    subtitle: 'Put your life in hands of computer',
+    options: ['One', 'Two']
+}
 
-ReactDOM.render(template,appRoot);
+const template = (
+    <div>
+        <h1>{app.title}</h1>
+        <p>{app.subtitle}</p>
+        <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+        <ol>
+            <li>Item one</li>
+            <li>Item two</li>
+        </ol>
+    </div>
+);
+ReactDOM.render(template, appRoot);
+
+renderCountTemplate();
