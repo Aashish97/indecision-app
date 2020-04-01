@@ -1,24 +1,65 @@
-console.log("App is running")
-
-const appRoot = document.getElementById('app');
-
-const app = {
-    title: 'Indecision App',
-    subtitle: 'Put your life in hands of computer',
-    options: ['One', 'Two']
+class IndecisionApp extends React.Component{
+    render(){
+        return(
+            <div>
+                <Header />
+                <Action />
+                <Options />
+                <AddOption />
+            </div>
+        )
+    }
 }
 
-const template = (
-    <div>
-        <h1>{app.title}</h1>
-        <p>{app.subtitle}</p>
-        <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
-        <ol>
-            <li>Item one</li>
-            <li>Item two</li>
-        </ol>
-    </div>
-);
-ReactDOM.render(template, appRoot);
+class Header extends React.Component{
+    render(){
+        return (
+            <div>
+                <h1>Indecision App</h1>
+                <h2>Put your life in hands of computer</h2>
+            </div>
+        );
+    }
+}
 
-renderCountTemplate();
+class Action extends React.Component{
+    render(){
+        return (
+            <button>What should I do</button>
+        );
+    }
+}
+
+class Options extends React.Component{
+    render() {
+        return (
+            <div>
+                <h3>Options</h3>
+                <Option />
+            </div>
+        );
+    }
+}
+
+class Option extends React.Component{
+    render() {
+        return (
+            <div>
+                <h3>Add option here</h3>
+            </div>
+        );
+    }
+}
+
+class AddOption extends React.Component{
+    render() {
+        return(
+            <div>
+                <p>Option 1</p>
+                <p>Option 2</p>
+            </div>
+        );
+    }
+}
+
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
