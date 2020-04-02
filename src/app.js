@@ -34,7 +34,7 @@ class IndecisionApp extends React.Component {
   }
 
   componentWillUnmount(){
-    console.log('componentWillMount')
+    console.log('componentWillUnmount')
   }
 
   handlePick() {

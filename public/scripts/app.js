@@ -53,7 +53,7 @@ var IndecisionApp = function (_React$Component) {
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      console.log('componentWillMount');
+      console.log('componentWillUnmount');
     }
   }, {
     key: 'handlePick',
