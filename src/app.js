@@ -36,12 +36,11 @@ class IndecisionApp extends React.Component {
     });
   }
   render() {
-    const title = "Indecision App";
     const subtitle = "Put your life in hands of computer";
 
     return (
       <div>
-        <Header title={title} subtitle={subtitle} />
+        <Header subtitle={subtitle} />
         <Action
           hasOption={this.state.options.length > 0}
           handlePick={this.handlePick}
@@ -60,14 +59,18 @@ const Header = props => {
   return (
     <div>
       <h1>{props.title}</h1>
-      <h2>{props.subtitle}</h2>
+      {props.subtitle && <h2>{props.subtitle}</h2>}
     </div>
   );
 };
 
+Header.defaultProps = {
+    title: 'Indecision'
+}
+
 const Action = props => {
   return (
-    <button onClick={this.props.handlePick} disabled={!this.props.hasOption}>
+    <button onClick={props.handlePick} disabled={!props.hasOption}>
       What should I do?
     </button>
   );
@@ -76,7 +79,7 @@ const Action = props => {
 const Options = props => {
   return (
     <div>
-      <button onClick={handleDeleteOptions}>Remove All</button>
+      <button onClick={props.handleDeleteOptions}>Remove All</button>
       {props.options.map(option => (
         <Option key={option} optionText={option} />
       ))}
@@ -85,7 +88,7 @@ const Options = props => {
 };
 
 const Option = props => {
-  return <div>{this.props.optionText}</div>;
+  return <div>{props.optionText}</div>;
 };
 
 class AddOption extends React.Component {
