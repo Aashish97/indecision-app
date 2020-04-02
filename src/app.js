@@ -10,6 +10,33 @@ class IndecisionApp extends React.Component {
     };
   }
 
+
+  componentDidMount() {
+      try {
+          const json = localStorage.getItem('options');
+          const options = JSON.parse(json);
+
+          if (options) {
+              this.setState(() => ({ options }))
+          }
+
+      }catch(e){
+          //Do nothing at all
+      }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+      if (prevState.options.length !== this.state.options.length) {
+        const json = JSON.stringify(this.state.options);
+        localStorage.setItem('options', json);
+      }
+
+  }
+
+  componentWillMount(){
+    console.log('componentWillMount')
+  }
+
   handlePick() {
     const randomNumber = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNumber];
@@ -49,7 +76,8 @@ class IndecisionApp extends React.Component {
           handlePick={this.handlePick}
         />
         <Options
-          options={this.state.options}
+          options={this.state.options} 
+          hasOption={this.state.options.length > 0}
           handleDeleteOptions={this.handleDeleteOptions}
           handleDeleteOption={this.handleDeleteOption}
         />
@@ -83,7 +111,8 @@ const Action = props => {
 const Options = props => {
   return (
     <div>
-      <button onClick={props.handleDeleteOptions}>Remove All</button>
+      <button onClick={props.handleDeleteOptions } disabled={!props.hasOption}>Remove All</button>
+      {props.options.length === 0 && <p>Please add an option to get started!</p>}
       {props.options.map(option => (
         <Option
           key={option}
@@ -118,8 +147,10 @@ class AddOption extends React.Component {
     e.preventDefault();
     const option = e.target.elements.option.value.trim();
     const error = this.props.handleAddOption(option);
-    e.target.elements.option.value = "";
     this.setState(() => ({ error }));
+    if(!error){
+        e.target.elements.option.value = "";
+    }
   }
   render() {
     return (
