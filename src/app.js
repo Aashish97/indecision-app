@@ -33,7 +33,7 @@ class IndecisionApp extends React.Component {
 
   }
 
-  componentWillMount(){
+  componentWillUnmount(){
     console.log('componentWillMount')
   }
 

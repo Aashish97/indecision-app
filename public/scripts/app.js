@@ -51,8 +51,8 @@ var IndecisionApp = function (_React$Component) {
       }
     }
   }, {
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
       console.log('componentWillMount');
     }
   }, {
