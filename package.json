@@ -5,9 +5,14 @@
   "repository": "git@github.com:Aashish97/indecision-app.git",
   "author": "Aashish Shrestha",
   "license": "MIT",
+  "scripts": {
+    "serve": "live-server public/",
+    "babel": "babel src/app.js --out-file=public/scripts/apps.js --presets=env,react --watch"
+  },
   "dependencies": {
     "@babel/preset-env": "^7.9.0",
     "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2"
+    "babel-preset-react-app": "^3.1.2",
+    "live-server": "^1.2.1"
   }
 }
