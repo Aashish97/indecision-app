@@ -15,7 +15,9 @@
 }
 
 @media (min-width: $desktop-breakpoint){
-    margin-bottom: $xl-size;
+    .big-button{
+        margin-bottom: $xl-size;
+    }
 }
 
 .button{
