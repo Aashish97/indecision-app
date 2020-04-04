@@ -5,9 +5,25 @@
   "repository": "git@github.com:Aashish97/indecision-app.git",
   "author": "Aashish Shrestha",
   "license": "MIT",
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
   "dependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/preset-env": "^7.9.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2"
+    "@babel/preset-react": "^7.9.4",
+    "babel-preset-react-app": "^3.1.2",
+    "live-server": "^1.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "validator": "^13.0.0",
+    "webpack": "^4.42.1",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.5",
+    "webpack-cli": "^3.3.11"
   }
 }
